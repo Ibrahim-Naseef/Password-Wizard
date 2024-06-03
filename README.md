@@ -125,6 +125,8 @@ else:
 
 ## Results
 ![image](https://github.com/Ibrahim-Naseef/Password-Wizard/assets/156147657/bb3e44e9-a132-4b55-b38f-07a40884db65)
+![Streamlit-GoogleChrome2024-06-0315-11-49-ezgif com-video-to-gif-converter](https://github.com/Ibrahim-Naseef/Password-Wizard/assets/156147657/156c9462-a081-4cfe-8688-a16ad2b7e1de)
+
 
 
 ## Try it out!
