@@ -4,7 +4,7 @@ import string
 import pandas as pd
 from datetime import datetime
 
-def generate_password(length, use_uppercase, use_lowercase, use_digits, use_special, custom_word, app_name):
+def generate_password(length, use_uppercase, use_lowercase, use_digits, use_special, custom_word):
     characters = ""
     if use_uppercase:
         characters += string.ascii_uppercase
@@ -16,7 +16,7 @@ def generate_password(length, use_uppercase, use_lowercase, use_digits, use_spec
         characters += string.punctuation
 
     if characters:
-        remaining_length = length - len(custom_word) - len(app_name)
+        remaining_length = length - len(custom_word) 
         if remaining_length < 0:
             return "Length too short for custom word and app name."
         
@@ -25,7 +25,6 @@ def generate_password(length, use_uppercase, use_lowercase, use_digits, use_spec
         password_list = list(password)
         insert_positions = random.sample(range(len(password_list) + 1), 2)  # Get two random positions
         password_list.insert(insert_positions[0], custom_word)
-        password_list.insert(insert_positions[1], app_name)
         
         # Shuffle the password characters to ensure randomness
         random.shuffle(password_list)
@@ -50,7 +49,6 @@ if not (use_uppercase or use_lowercase or use_digits or use_special):
     st.error("Please select at least one character set.")
 else:
     custom_word = st.sidebar.text_input("Custom word (optional)", value="Secret")
-    app_name = st.sidebar.text_input("Application/Website name (optional)", value="App")
 
     if st.sidebar.button("Generate Password"):
         password = generate_password(password_length, use_uppercase, use_lowercase, use_digits, use_special, custom_word, app_name)
@@ -65,7 +63,6 @@ else:
             'Digits': [use_digits],
             'Special Characters': [use_special],
             'Custom Word': [custom_word],
-            'App/Website Name': [app_name],
             'Generated Password': [password]
         }
         save_to_csv(data)
