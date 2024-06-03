@@ -48,7 +48,7 @@ use_special = st.sidebar.checkbox("Include special characters", value=True)
 if not (use_uppercase or use_lowercase or use_digits or use_special):
     st.error("Please select at least one character set.")
 else:
-    custom_word = st.sidebar.text_input("Custom word (optional)", value="Secret")
+    custom_word = st.sidebar.text_input("Custom word (User/Website name)", value="Secret")
 
     if st.sidebar.button("Generate Password"):
         password = generate_password(password_length, use_uppercase, use_lowercase, use_digits, use_special, custom_word, app_name)
