@@ -28,27 +28,21 @@ def generate_password(length, use_uppercase, use_lowercase, use_digits, use_spec
         if remaining_length < 0:
             return "Length too short for custom word."
 
-        # Check if at least one character set is selected
         if not (use_uppercase or use_lowercase or use_digits or use_special):
             return "Please select at least one character from each character set."
 
-        # Add one character from each selected character set to the password
         password += random.choice(string.ascii_uppercase) if use_uppercase else ""
         password += random.choice(string.ascii_lowercase) if use_lowercase else ""
         password += random.choice(string.digits) if use_digits else ""
         password += random.choice(string.punctuation) if use_special else ""
 
-        # Fill the remaining password length with random characters
         password += ''.join(random.choice(characters) for _ in range(remaining_length - 4))
 
-        # Convert the password to a list for easy insertion of custom word
         password_list = list(password)
 
-        # Insert the custom word at a random position
         insert_position = random.randint(0, len(password_list))
         password_list.insert(insert_position, custom_word)
 
-        # Shuffle the password characters to ensure randomness
         random.shuffle(password_list)
         return ''.join(password_list)
     else:
