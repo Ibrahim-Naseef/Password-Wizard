@@ -7,17 +7,22 @@ from datetime import datetime
 def generate_password(length, use_uppercase, use_lowercase, use_digits, use_special, custom_word):
     characters = ""
     password = ""
+    ch = 0
 
     if use_uppercase:
         characters += random.choice(string.ascii_uppercase)
+        ch+=1
     if use_lowercase:
         characters += random.choice(string.ascii_lowercase)
+        ch+=1
     if use_digits:
         characters += random.choice(string.digits)
+        ch+=1
     if use_special:
         characters += random.choice(string.punctuation)
+        ch+=1
 
-    remaining_length = length - len(custom_word)
+    remaining_length = length - len(custom_word) - ch
 
     if characters:
         if remaining_length < 0:
