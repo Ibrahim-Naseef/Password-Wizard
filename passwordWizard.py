@@ -63,14 +63,14 @@ st.title("PASSWORD WIZARD")
 st.sidebar.header("Settings")
 password_length = st.sidebar.slider("Password length", min_value=6, max_value=24, value=12)
 use_uppercase = st.sidebar.checkbox("Include uppercase letters", value=True)
-use_lowercase = st.sidebar.checkbox("Include lowercase letters", value=True)
-use_digits = st.sidebar.checkbox("Include digits", value=True)
-use_special = st.sidebar.checkbox("Include special characters", value=True)
+use_lowercase = st.sidebar.checkbox("Include lowercase letters", )
+use_digits = st.sidebar.checkbox("Include digits", )
+use_special = st.sidebar.checkbox("Include special characters", )
 
 if not (use_uppercase or use_lowercase or use_digits or use_special):
     st.error("Please select at least one character set.")
 else:
-    custom_word = st.sidebar.text_input("Custom word (User/Website name)", value="xyz")
+    custom_word = st.sidebar.text_input("Custom word (User/Website name)", value="Google")
 
     if st.sidebar.button("Generate Password"):
         password = generate_password(password_length, use_uppercase, use_lowercase, use_digits, use_special, custom_word)
