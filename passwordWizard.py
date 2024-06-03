@@ -69,6 +69,6 @@ else:
             'Generated Password': [password]
         }
         save_to_csv(data)
-        st.success("Password details saved to CSV!")
+        st.success("Password is Generated")
     else:
         st.text("Click the button to generate a password")
