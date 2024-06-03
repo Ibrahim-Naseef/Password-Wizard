@@ -51,7 +51,7 @@ else:
     custom_word = st.sidebar.text_input("Custom word (User/Website name)", value="Secret")
 
     if st.sidebar.button("Generate Password"):
-        password = generate_password(password_length, use_uppercase, use_lowercase, use_digits, use_special, custom_word, app_name)
+        password = generate_password(password_length, use_uppercase, use_lowercase, use_digits, use_special, custom_word)
         st.text("Generated Password:")
         st.code(password)
         
